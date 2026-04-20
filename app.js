@@ -1,324 +1,289 @@
-// ── Data ──
-
-const CATEGORIES = [
-  { name: "Fashion", icon: "👗" },
-  { name: "Accessories", icon: "👜" },
-  { name: "Activities", icon: "📅" },
-  { name: "Home", icon: "🏺" },
-  { name: "Beauty", icon: "💄" },
-  { name: "Sport", icon: "🏋️" },
-  { name: "Food", icon: "☕" },
-  { name: "See all", icon: "⊞" },
-];
+// ─── BRAND DATA ───────────────────────────────────────
+// Add your brands here. Fields:
+//   name     : string  — brand display name
+//   category : string  — one of the categories below
+//   desc     : string  — short description (1–2 sentences)
+//   logo     : string  — path or URL to logo image (leave "" for initial fallback)
+//   url      : string  — website or Instagram URL (leave "" to disable Visit button)
 
 const BRANDS = [
-  { name: "ONCE MORE", category: "Fashion", description: "Upcycled clothing — one-of-a-kind redesigned shirts. A sustainable mother-and-daughter project.", logo: "https://placehold.co/100x100/1a6b3c/fff?text=Once+More" },
-  { name: "bullishlabel", category: "Fashion", description: "Unique repurposed jackets.", logo: "https://placehold.co/100x100/333/fff?text=BL" },
-  { name: "4starlings_lt", category: "Beauty", description: "Four Starlings — cosmetics that must be experienced.", logo: "https://placehold.co/100x100/444/fff?text=4S" },
-  { name: "Pastel Hoodie", category: "Fashion", description: "Cozy streetwear hoodies in pastel tones, designed and printed in Vilnius.", logo: "https://placehold.co/100x100/4a6fa5/fff?text=PH", price: "€85" },
-  { name: "Skanūs Puodai", category: "Food", description: "Handmade ceramic bowls and mugs for your kitchen. Crafted with love in Užupis.", logo: "https://placehold.co/100x100/9b8ec4/fff?text=SP" },
-  { name: "Viktė Matcha House", category: "Food", description: "Premium matcha drinks and desserts. Vilnius' first dedicated matcha café.", logo: "https://placehold.co/100x100/5a8a3c/fff?text=VM" },
-  { name: "EkoraCandles", category: "Home", description: "Hand-poured soy candles with Lithuanian herb scents. Zero waste packaging.", logo: "https://placehold.co/100x100/d4a0a0/fff?text=EC" },
-  { name: "Cherry Market", category: "Food", description: "Weekly pop-up market featuring Vilnius small food producers and artisans.", logo: "https://placehold.co/100x100/c0392b/fff?text=CM" },
-  { name: "Lino Drabužiai", category: "Fashion", description: "Sustainable linen clothing for everyday wear. Lithuanian-grown flax.", logo: "https://placehold.co/100x100/8B7D6B/fff?text=LD" },
-  { name: "Žalia Kava", category: "Food", description: "Specialty coffee roasters. Ethical beans roasted fresh weekly in Naujamiestis.", logo: "https://placehold.co/100x100/2c1810/fff?text=ZK" },
-  { name: "Bitė Naturali", category: "Beauty", description: "All-natural skincare with Lithuanian beeswax, honey, and wild herbs.", logo: "https://placehold.co/100x100/f0c040/333?text=BN" },
-  { name: "Medžio Forma", category: "Home", description: "Minimalist wooden furniture and objects. CNC-cut from sustainably sourced Baltic birch.", logo: "https://placehold.co/100x100/a08060/fff?text=MF" },
-  { name: "Vilkė Apparel", category: "Fashion", description: "Streetwear blending Baltic folklore motifs with modern cuts. Limited drops.", logo: "https://placehold.co/100x100/2d2d2d/fff?text=VA", price: "€120" },
-  { name: "Šviesa Press", category: "Activities", description: "Risograph print studio and gallery. Open workshops every Saturday.", logo: "https://placehold.co/100x100/e67e22/fff?text=SP" },
-  { name: "Sport Flow", category: "Sport", description: "Local athletic wear made from recycled materials. Yoga, running, and outdoor gear.", logo: "https://placehold.co/100x100/2980b9/fff?text=SF" },
-  { name: "Gėlių Pieva", category: "Accessories", description: "Dried flower arrangements and botanical accessories handmade in Antakalnis.", logo: "https://placehold.co/100x100/c0a0d0/fff?text=GP" },
+  { name: "Užupio Keramika",    category: "Crafts",   desc: "Hand-thrown ceramics from Vilnius' artsy Užupis republic. Each piece is signed and one-of-a-kind.", logo: "", url: "" },
+  { name: "Kibinų Krautuvė",   category: "Food",     desc: "Traditional Karaite kibinai baked fresh daily — the best in the Baltic.", logo: "", url: "" },
+  { name: "Lino Namai",         category: "Homeware", desc: "Natural Lithuanian linen goods: sheets, tablecloths, and aprons with minimal, elegant design.", logo: "", url: "" },
+  { name: "Vilniaus Žolinė",   category: "Wellness", desc: "Herbal teas and dried flower blends foraged from Lithuanian meadows by local herbalists.", logo: "", url: "" },
+  { name: "Radvilų Knygynas",  category: "Books",    desc: "Independent bookshop specialising in Lithuanian literature and rare art prints.", logo: "", url: "" },
+  { name: "Betonas Studio",     category: "Design",   desc: "Concrete homeware and jewellery cast in small batches. Bold, tactile, minimal.", logo: "", url: "" },
+  { name: "Šaltibarščių Namas",category: "Food",     desc: "Cold beet soup kits and traditional Lithuanian pantry staples, delivered to your door.", logo: "", url: "" },
+  { name: "Amber & Oak",        category: "Crafts",   desc: "Baltic amber jewellery fused with locally-sourced oak — modern heirlooms.", logo: "", url: "" },
+  { name: "Paprastas",          category: "Clothing", desc: "Slow-fashion basics in natural fabrics, made in small runs in Vilnius.", logo: "", url: "" },
+  { name: "Medžio Kalba",      category: "Homeware", desc: "Hand-carved wooden utensils, bowls, and toys crafted by Lithuanian woodworkers.", logo: "", url: "" },
+  { name: "Gatvė Coffee",      category: "Food",     desc: "Specialty coffee roastery with single-origin beans sourced directly from farmers.", logo: "", url: "" },
+  { name: "Kerpė Studio",      category: "Design",   desc: "Graphic design collective creating identity work for Vilnius' independent businesses.", logo: "", url: "" },
 ];
 
-// ── State ──
+// ─── DERIVED STATE ────────────────────────────────────
+const CATEGORIES = [...new Set(BRANDS.map(b => b.category))].sort();
 
-let currentView = "home";
+let activeView     = 'home';
 let activeCategory = null;
-let savedBrands = {};
+let searchQuery    = '';
+let viewMode       = 'grid';
+let saved          = JSON.parse(localStorage.getItem('loupe-saved') || '{}');
+let modalBrand     = null;
 
-// Initialize saved state from localStorage
-try {
-  const stored = localStorage.getItem("loupe_saved");
-  if (stored) savedBrands = JSON.parse(stored);
-} catch (e) {}
+// ─── INIT ─────────────────────────────────────────────
+function init() {
+  buildCatList();
+  render();
+}
 
-// ── DOM References ──
+// ─── SIDEBAR CATEGORY LIST ────────────────────────────
+function buildCatList() {
+  const el = document.getElementById('catList');
+  el.innerHTML = CATEGORIES.map(cat => {
+    const count = BRANDS.filter(b => b.category === cat).length;
+    return `<div class="cat-item" id="cat-${cat}" onclick="filterCat('${cat}')">${cat}<span class="cat-count">${count}</span></div>`;
+  }).join('');
+}
 
-const content = document.getElementById("content");
-const headerRight = document.getElementById("headerRight");
-const searchInput = document.getElementById("searchInput");
+// ─── NAVIGATION ───────────────────────────────────────
+function navigate(view) {
+  activeView     = view;
+  activeCategory = null;
+  searchQuery    = '';
+  document.getElementById('searchInput').value = '';
 
-// ── Search ──
+  ['home', 'explore', 'saved'].forEach(v =>
+    document.getElementById('nav-' + v).classList.toggle('active', v === view)
+  );
+  CATEGORIES.forEach(c => document.getElementById('cat-' + c)?.classList.remove('active'));
+  render();
+}
 
-searchInput.addEventListener("input", () => {
-  renderView();
+function filterCat(cat) {
+  activeView     = 'explore';
+  activeCategory = activeCategory === cat ? null : cat;
+
+  ['home', 'explore', 'saved'].forEach(v => document.getElementById('nav-' + v).classList.remove('active'));
+  document.getElementById('nav-explore').classList.add('active');
+  CATEGORIES.forEach(c => document.getElementById('cat-' + c)?.classList.toggle('active', c === activeCategory));
+  render();
+}
+
+// ─── SEARCH ───────────────────────────────────────────
+function onSearch() {
+  searchQuery = document.getElementById('searchInput').value.toLowerCase();
+  if (searchQuery && activeView === 'home') {
+    activeView = 'explore';
+    ['home', 'explore', 'saved'].forEach(v => document.getElementById('nav-' + v).classList.remove('active'));
+    document.getElementById('nav-explore').classList.add('active');
+  }
+  render();
+}
+
+// ─── SORT & FILTER ────────────────────────────────────
+function getSorted(arr) {
+  const sort = document.getElementById('sortSelect').value;
+  if (sort === 'az') return [...arr].sort((a, b) => a.name.localeCompare(b.name));
+  if (sort === 'za') return [...arr].sort((a, b) => b.name.localeCompare(a.name));
+  return arr;
+}
+
+function getFiltered(arr) {
+  let r = arr;
+  if (activeCategory) r = r.filter(b => b.category === activeCategory);
+  if (searchQuery)    r = r.filter(b =>
+    b.name.toLowerCase().includes(searchQuery) ||
+    b.category.toLowerCase().includes(searchQuery) ||
+    b.desc.toLowerCase().includes(searchQuery)
+  );
+  return getSorted(r);
+}
+
+// ─── VIEW MODE ────────────────────────────────────────
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('gridViewBtn').classList.toggle('active', mode === 'grid');
+  document.getElementById('listViewBtn').classList.toggle('active', mode === 'list');
+  render();
+}
+
+// ─── RENDER ROUTER ────────────────────────────────────
+function render() {
+  const ca    = document.getElementById('contentArea');
+  const title = document.getElementById('topbarTitle');
+  const meta  = document.getElementById('topbarMeta');
+
+  if (activeView === 'home') {
+    title.textContent = 'Welcome to Loupe';
+    meta.textContent  = 'Your local brand directory for Vilnius';
+    renderHome(ca);
+  } else if (activeView === 'explore') {
+    const brands = getFiltered(BRANDS);
+    title.textContent = activeCategory || 'All Brands';
+    meta.textContent  = `${brands.length} brand${brands.length !== 1 ? 's' : ''}${searchQuery ? ' matching "' + searchQuery + '"' : ''}`;
+    renderBrandList(ca, brands);
+  } else if (activeView === 'saved') {
+    const brands = getFiltered(BRANDS.filter(b => saved[b.name]));
+    title.textContent = 'Saved Brands';
+    meta.textContent  = `${brands.length} brand${brands.length !== 1 ? 's' : ''} saved`;
+    renderBrandList(ca, brands);
+  }
+}
+
+// ─── HOME VIEW ────────────────────────────────────────
+function renderHome(el) {
+  const featured = BRANDS.slice(0, 6);
+  el.innerHTML = `
+    <div class="hero-strip">
+      <div class="hero-card" onclick="navigate('explore')">
+        <div class="hero-card-label">Directory</div>
+        <div class="hero-card-num">${BRANDS.length}</div>
+        <div class="hero-card-desc">local brands listed</div>
+      </div>
+      <div class="hero-card light" onclick="navigate('explore')">
+        <div class="hero-card-label">Categories</div>
+        <div class="hero-card-num">${CATEGORIES.length}</div>
+        <div class="hero-card-desc">categories to explore</div>
+      </div>
+      <div class="hero-card light" onclick="navigate('saved')">
+        <div class="hero-card-label">Your List</div>
+        <div class="hero-card-num">${Object.keys(saved).length}</div>
+        <div class="hero-card-desc">brands saved by you</div>
+      </div>
+    </div>
+    <div class="section-header">
+      <h2>Featured Brands</h2>
+      <span class="see-all" onclick="navigate('explore')">See all →</span>
+    </div>
+    <div class="${viewMode === 'grid' ? 'brand-grid' : 'brand-list-view'}">
+      ${featured.map((b, i) => viewMode === 'grid' ? cardHTML(b, i) : rowHTML(b, i)).join('')}
+    </div>
+  `;
+}
+
+// ─── BRAND LIST / EXPLORE / SAVED ────────────────────
+function renderBrandList(el, brands) {
+  if (brands.length === 0) {
+    el.innerHTML = `<div class="empty-state">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <p>${activeView === 'saved' ? 'Click ♡ on any brand to save it here.' : 'No brands found.'}</p>
+    </div>`;
+    return;
+  }
+  el.innerHTML = `<div class="${viewMode === 'grid' ? 'brand-grid' : 'brand-list-view'}">
+    ${brands.map((b, i) => viewMode === 'grid' ? cardHTML(b, i) : rowHTML(b, i)).join('')}
+  </div>`;
+}
+
+// ─── CARD TEMPLATES ───────────────────────────────────
+function logoHTML(b, size) {
+  const initial = b.name[0];
+  const img     = b.logo ? `<img src="${b.logo}" alt="${b.name}" />` : initial;
+  return `<div class="brand-logo" style="width:${size}px;height:${size}px">${img}</div>`;
+}
+
+function cardHTML(b, i) {
+  const isSaved = !!saved[b.name];
+  const safeId  = b.name.replace(/\s/g, '_');
+  return `<div class="brand-card" style="animation-delay:${i * 40}ms" onclick="openModal('${escHtml(b.name)}')">
+    <div class="brand-card-top">
+      ${logoHTML(b, 52)}
+      <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation();toggleSave('${escHtml(b.name)}')" id="save-${safeId}" title="${isSaved ? 'Remove' : 'Save'}">
+        ${isSaved ? '♥' : '♡'}
+      </button>
+    </div>
+    <div class="brand-name">${b.name}</div>
+    <div class="brand-desc">${b.desc}</div>
+    <div class="brand-footer">
+      <span class="brand-tag">${b.category}</span>
+      <span class="brand-link">Visit ↗</span>
+    </div>
+  </div>`;
+}
+
+function rowHTML(b, i) {
+  const isSaved = !!saved[b.name];
+  return `<div class="brand-row" style="animation-delay:${i * 30}ms" onclick="openModal('${escHtml(b.name)}')">
+    ${logoHTML(b, 40)}
+    <div class="brand-row-info">
+      <div class="brand-name">${b.name}</div>
+      <div class="brand-desc">${b.desc}</div>
+    </div>
+    <div class="brand-row-right">
+      <span class="brand-tag">${b.category}</span>
+      <button class="save-btn ${isSaved ? 'saved' : ''}" onclick="event.stopPropagation();toggleSave('${escHtml(b.name)}')" title="${isSaved ? 'Remove' : 'Save'}">
+        ${isSaved ? '♥' : '♡'}
+      </button>
+    </div>
+  </div>`;
+}
+
+// ─── SAVE / UNSAVE ────────────────────────────────────
+function toggleSave(name) {
+  if (saved[name]) delete saved[name];
+  else saved[name] = true;
+  localStorage.setItem('loupe-saved', JSON.stringify(saved));
+
+  const safeId = name.replace(/\s/g, '_');
+  const btn    = document.getElementById('save-' + safeId);
+  if (btn) {
+    btn.textContent = saved[name] ? '♥' : '♡';
+    btn.classList.toggle('saved', !!saved[name]);
+  }
+  if (activeView === 'saved') render();
+}
+
+function toggleSaveModal() {
+  if (!modalBrand) return;
+  toggleSave(modalBrand.name);
+  const isSaved = !!saved[modalBrand.name];
+  document.getElementById('modalSave').textContent = isSaved ? '♥ Saved' : '♡ Save brand';
+}
+
+// ─── MODAL ────────────────────────────────────────────
+function openModal(name) {
+  const b = BRANDS.find(x => x.name === name);
+  if (!b) return;
+  modalBrand = b;
+
+  document.getElementById('modalLogo').innerHTML = b.logo
+    ? `<img src="${b.logo}" alt="${b.name}" />`
+    : b.name[0];
+  document.getElementById('modalName').textContent = b.name;
+  document.getElementById('modalTag').textContent  = b.category;
+  document.getElementById('modalDesc').textContent = b.desc;
+
+  const isSaved = !!saved[b.name];
+  document.getElementById('modalSave').textContent = isSaved ? '♥ Saved' : '♡ Save brand';
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalOverlay')) {
+    document.getElementById('modalOverlay').classList.remove('open');
+    modalBrand = null;
+  }
+}
+
+function visitModal() {
+  if (!modalBrand) return;
+  if (modalBrand.url) {
+    window.open(modalBrand.url, '_blank', 'noopener');
+  } else {
+    alert(`No URL set for ${modalBrand.name}. Add one in the BRANDS array in app.js.`);
+  }
+}
+
+// ─── KEYBOARD ─────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
 });
 
-function getSearchQuery() {
-  return searchInput.value.toLowerCase().trim();
+// ─── HELPERS ──────────────────────────────────────────
+function escHtml(str) {
+  return str.replace(/'/g, "\\'");
 }
 
-function filterBrands(list) {
-  const q = getSearchQuery();
-  if (!q) return list;
-  return list.filter(b =>
-    b.name.toLowerCase().includes(q) ||
-    b.description.toLowerCase().includes(q) ||
-    b.category.toLowerCase().includes(q)
-  );
-}
-
-// ── Save / Unsave ──
-
-function toggleSave(name) {
-  savedBrands[name] = !savedBrands[name];
-  try { localStorage.setItem("loupe_saved", JSON.stringify(savedBrands)); } catch (e) {}
-  renderView();
-}
-
-function heartSVG(filled) {
-  const fill = filled ? "var(--maroon)" : "none";
-  const stroke = filled ? "var(--maroon)" : "#ccc";
-  return `<svg width="22" height="22" viewBox="0 0 24 24" fill="${fill}" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
-}
-
-// ── Helpers ──
-
-function hamburgerHTML() {
-  return `<div class="hamburger"><span></span><span></span><span></span></div>`;
-}
-
-function brandCardHTML(brand, delay) {
-  const priceRow = brand.price
-    ? `<div class="brand-price-row">
-         <span class="price-tag">${brand.price}</span>
-         <button class="cart-btn">🛒</button>
-       </div>`
-    : "";
-
-  return `
-    <div class="brand-card animate-in" style="animation-delay:${delay}ms">
-      <div class="brand-logo">
-        <img src="${brand.logo}" alt="${brand.name}" onerror="this.style.display='none'" />
-      </div>
-      <div class="brand-info">
-        <div class="brand-top">
-          <div class="brand-name">${brand.name}</div>
-          <button class="heart-btn" onclick="event.stopPropagation(); toggleSave('${brand.name.replace(/'/g, "\\'")}')">
-            ${heartSVG(!!savedBrands[brand.name])}
-          </button>
-        </div>
-        <div class="brand-desc">${brand.description}</div>
-        ${priceRow}
-      </div>
-    </div>
-  `;
-}
-
-// ── Navigation ──
-
-function navigate(view) {
-  // Update nav buttons
-  document.querySelectorAll(".nav-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.nav === view);
-  });
-
-  if (view === "home") {
-    currentView = "home";
-    activeCategory = null;
-    searchInput.value = "";
-  } else if (view === "explore") {
-    currentView = "explore";
-    activeCategory = null;
-  } else if (view === "saved") {
-    currentView = "saved";
-  } else if (view === "nearbuy" || view === "profile") {
-    currentView = view;
-  }
-
-  renderView();
-}
-
-function goCategory(cat) {
-  if (cat === "See all") {
-    currentView = "explore";
-    activeCategory = null;
-  } else {
-    currentView = "category";
-    activeCategory = cat;
-  }
-
-  document.querySelectorAll(".nav-btn").forEach(btn => {
-    btn.classList.toggle("active", btn.dataset.nav === "explore");
-  });
-
-  renderView();
-}
-
-// ── Render ──
-
-function renderView() {
-  switch (currentView) {
-    case "home": renderHome(); break;
-    case "category": renderCategory(); break;
-    case "explore": renderExplore(); break;
-    case "saved": renderSaved(); break;
-    case "nearbuy": renderPlaceholder("Near buy", "Map coming soon — discover brands near you."); break;
-    case "profile": renderPlaceholder("Profile", "Your profile page coming soon."); break;
-  }
-  updateHeaderRight();
-}
-
-function updateHeaderRight() {
-  if (currentView === "category" && activeCategory) {
-    headerRight.innerHTML = `<div class="header-category-label">${activeCategory}</div>`;
-  } else if (currentView === "home") {
-    headerRight.innerHTML = `
-      <div class="notification-bell">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-      </div>`;
-  } else {
-    headerRight.innerHTML = "";
-  }
-}
-
-// ── Home View ──
-
-function renderHome() {
-  const recommended = BRANDS.slice(0, 3);
-  const recent = BRANDS.slice(-4);
-
-  content.innerHTML = `
-    <div style="background:#fff">
-      <!-- Categories -->
-      <div class="section">
-        <div class="section-header">
-          <h2 class="section-title">Category</h2>
-          ${hamburgerHTML()}
-        </div>
-        <div class="category-grid">
-          ${CATEGORIES.map(cat => `
-            <div class="category-item" onclick="goCategory('${cat.name}')">
-              <div class="category-circle">${cat.icon}</div>
-              <span class="category-label">${cat.name}</span>
-            </div>
-          `).join("")}
-        </div>
-      </div>
-
-      <!-- Recommend -->
-      <div class="section">
-        <div class="section-header">
-          <h2 class="section-title">Recommend</h2>
-          ${hamburgerHTML()}
-        </div>
-        <div class="recommend-row">
-          ${recommended.map(b => `
-            <div class="recommend-card" onclick="goCategory('${b.category}')">
-              <img src="${b.logo}" alt="${b.name}" />
-            </div>
-          `).join("")}
-        </div>
-      </div>
-
-      <!-- Recently added -->
-      <div class="section" style="padding-bottom:24px">
-        <div class="section-header">
-          <h2 class="section-title">Recently added</h2>
-        </div>
-        <div class="recent-grid">
-          ${recent.map(b => `
-            <div class="recent-card" onclick="goCategory('${b.category}')">
-              <div class="recent-card-img">
-                <img src="${b.logo}" alt="${b.name}" />
-              </div>
-              <div class="recent-card-info">
-                <div class="name">${b.name}</div>
-                <div class="cat">${b.category}</div>
-              </div>
-            </div>
-          `).join("")}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-// ── Category View ──
-
-function renderCategory() {
-  const brands = filterBrands(BRANDS.filter(b => b.category === activeCategory));
-
-  content.innerHTML = `
-    <div class="brand-list">
-      <button class="back-btn" onclick="navigate('home')">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--maroon)" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
-        Back
-      </button>
-      ${brands.length === 0
-        ? '<div class="empty-state">No brands found.</div>'
-        : brands.map((b, i) => brandCardHTML(b, i * 50)).join("")
-      }
-    </div>
-  `;
-}
-
-// ── Explore View ──
-
-function renderExplore() {
-  const list = activeCategory
-    ? BRANDS.filter(b => b.category === activeCategory)
-    : BRANDS;
-  const brands = filterBrands(list);
-
-  const allCats = CATEGORIES.filter(c => c.name !== "See all");
-
-  content.innerHTML = `
-    <div class="brand-list">
-      <div class="filter-pills">
-        <button class="filter-pill ${!activeCategory ? 'active' : ''}" onclick="activeCategory=null; renderView();">All</button>
-        ${allCats.map(c => `
-          <button class="filter-pill ${activeCategory === c.name ? 'active' : ''}"
-            onclick="activeCategory = activeCategory === '${c.name}' ? null : '${c.name}'; renderView();">
-            ${c.name}
-          </button>
-        `).join("")}
-      </div>
-      ${brands.length === 0
-        ? '<div class="empty-state">No brands found.</div>'
-        : brands.map((b, i) => brandCardHTML(b, i * 40)).join("")
-      }
-    </div>
-  `;
-}
-
-// ── Saved View ──
-
-function renderSaved() {
-  const brands = BRANDS.filter(b => savedBrands[b.name]);
-
-  content.innerHTML = `
-    <div class="brand-list">
-      <h2 class="section-title" style="margin:6px 0 12px">Saved brands</h2>
-      ${brands.length === 0
-        ? '<div class="empty-state">Tap ♡ on any brand to save it here.</div>'
-        : brands.map((b, i) => brandCardHTML(b, i * 50)).join("")
-      }
-    </div>
-  `;
-}
-
-// ── Placeholder Views ──
-
-function renderPlaceholder(title, message) {
-  content.innerHTML = `
-    <div class="brand-list">
-      <h2 class="section-title" style="margin:6px 0 12px">${title}</h2>
-      <div class="empty-state">${message}</div>
-    </div>
-  `;
-}
-
-// ── Init ──
-
-renderView();
+// ─── BOOT ─────────────────────────────────────────────
+init();
