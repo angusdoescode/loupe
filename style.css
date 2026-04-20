@@ -189,8 +189,8 @@ html, body {
 }
 
 .topbar-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-family: 'Helvetica Neue', serif;
+  font-size: 67px;
   color: var(--ink);
   letter-spacing: -0.3px;
 }
