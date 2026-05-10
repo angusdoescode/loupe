@@ -3,15 +3,11 @@
 
 :root {
   --cream: #ffffff;
-  --maroon: #96141e;
-  --maroon-light: #b01a26;
-  --maroon-pale: #f5dde0;
-  --ink: #1a1410;
-  --muted: #7a6f67;
-  --border: #e0d8d8;
-  --white: #ffffff;
-  --card-hover: #fdf8f8;
-  --sidebar-w: 240px;
+--maroon: #96141e;
+--maroon-light: #b01a26;
+--maroon-pale: #f5dde0;
+--border: #e0d8d8;
+--card-hover: #fdf8f8;
 }
 
 html, body {
