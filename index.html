@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Loupe — Vilnius Local Brands</title>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -19,19 +19,19 @@
   --card-hover: #fdf8f8;
   --sidebar-w: 240px;
 }
-html, body { height: 100%; background: var(--cream); color: var(--ink); font-family: 'Josefin Sans', sans-serif; font-size: 15px; overflow: hidden; }
+html, body { height: 100%; background: var(--cream); color: var(--ink); font-family: 'Anton',  sans-serif; font-size: 15px; overflow: hidden; }
 .shell { display: flex; height: 100vh; overflow: hidden; }
 
 /* ── SIDEBAR ── */
 .sidebar { width: var(--sidebar-w); min-width: var(--sidebar-w); background: var(--maroon); display: flex; flex-direction: column; overflow-y: auto; z-index: 10; }
 .sidebar-logo { padding: 32px 28px 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.sidebar-logo .wordmark { font-family: 'Josefin Sans', sans-serif; font-size: 28px; color: var(--cream); letter-spacing: -0.5px; }
+.sidebar-logo .wordmark { font-family: 'Anton',  sans-serif; font-size: 28px; color: var(--cream); letter-spacing: -0.5px; }
 .sidebar-logo .tagline { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 5px; }
 
 .sidebar-search { padding: 18px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .search-wrap { position: relative; }
 .search-wrap svg { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); opacity: 0.5; pointer-events: none; }
-.search-wrap input { width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 9px 12px 9px 34px; color: var(--cream); font-family: 'Josefin Sans', sans-serif; font-size: 13px; }
+.search-wrap input { width: 100%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 9px 12px 9px 34px; color: var(--cream); font-family: 'Anton',  sans-serif; font-size: 13px; }
 .search-wrap input::placeholder { color: rgba(255,255,255,0.4); }
 .search-wrap input:focus { outline: none; background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
 
@@ -53,10 +53,10 @@ html, body { height: 100%; background: var(--cream); color: var(--ink); font-fam
 .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
 .topbar { padding: 20px 32px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--cream); flex-shrink: 0; }
-.topbar-left .topbar-title { font-family: 'Josefin Sans', sans-serif; font-size: 22px; color: var(--ink); }
+.topbar-left .topbar-title { font-family: 'Anton',  sans-serif; font-size: 22px; color: var(--ink); }
 .topbar-left .topbar-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
 .topbar-right { display: flex; align-items: center; gap: 8px; }
-.back-btn { display: flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); font-size: 13px; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: 'Josefin Sans', sans-serif; }
+.back-btn { display: flex; align-items: center; gap: 6px; padding: 7px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--white); font-size: 13px; color: var(--muted); cursor: pointer; transition: all 0.15s; font-family: 'Anton',  sans-serif; }
 .back-btn:hover { border-color: var(--maroon); color: var(--maroon); }
 .view-toggle { display: flex; gap: 4px; }
 .view-btn { width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 6px; background: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: all 0.15s; }
@@ -70,11 +70,11 @@ html, body { height: 100%; background: var(--cream); color: var(--ink); font-fam
 .stat-card.clickable { cursor: pointer; }
 .stat-card.clickable:hover { border-color: var(--maroon); box-shadow: 0 4px 16px rgba(107,30,46,0.1); }
 .stat-card .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-.stat-card .stat-num { font-family: 'Josefin Sans', sans-serif; font-size: 36px; color: var(--maroon); line-height: 1; }
+.stat-card .stat-num { font-family: 'Anton',  sans-serif; font-size: 36px; color: var(--maroon); line-height: 1; }
 .stat-card .stat-desc { font-size: 13px; color: var(--muted); margin-top: 6px; }
 .stat-card.clickable:hover .stat-desc { color: var(--maroon); }
 
-.section-title { font-family: 'Josefin Sans', sans-serif; font-size: 18px; color: var(--ink); margin-bottom: 16px; }
+.section-title { font-family: 'Anton',  sans-serif; font-size: 18px; color: var(--ink); margin-bottom: 16px; }
 .section-divider { margin: 32px 0; border: none; border-top: 1px solid var(--border); }
 
 /* ── CATEGORY HUB ── */
@@ -82,7 +82,7 @@ html, body { height: 100%; background: var(--cream); color: var(--ink); font-fam
 .cat-hub-card { background: var(--white); border: 1.5px solid var(--border); border-radius: 16px; padding: 28px 24px; cursor: pointer; transition: all 0.2s; display: flex; flex-direction: column; gap: 8px; }
 .cat-hub-card:hover { border-color: var(--maroon); box-shadow: 0 6px 24px rgba(107,30,46,0.12); transform: translateY(-2px); }
 .hub-emoji { font-size: 36px; }
-.hub-name { font-family: 'Josefin Sans', sans-serif; font-size: 17px; color: var(--ink); margin-top: 4px; }
+.hub-name { font-family: 'Anton',  sans-serif; font-size: 17px; color: var(--ink); margin-top: 4px; }
 .hub-count { font-size: 12px; color: var(--muted); }
 .hub-subdesc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 .hub-arrow { margin-top: 10px; color: var(--maroon); font-size: 18px; opacity: 0; transition: opacity 0.2s; }
@@ -98,7 +98,7 @@ html, body { height: 100%; background: var(--cream); color: var(--ink); font-fam
 .card-heart:hover, .card-heart.saved { color: var(--maroon); transform: scale(1.2); }
 .card-body { padding: 16px 18px; }
 .card-cat-tag { display: inline-block; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--maroon); background: rgba(107,30,46,0.08); border-radius: 4px; padding: 2px 8px; margin-bottom: 8px; }
-.card-name { font-family: 'Josefin Sans', sans-serif; font-size: 16px; color: var(--ink); margin-bottom: 6px; }
+.card-name { font-family: 'Anton',  sans-serif; font-size: 16px; color: var(--ink); margin-bottom: 6px; }
 .card-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
 .card-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 12px; font-size: 12px; color: var(--maroon); text-decoration: none; border: 1px solid rgba(107,30,46,0.25); border-radius: 6px; padding: 5px 10px; transition: background 0.15s; }
 .card-link:hover { background: rgba(107,30,46,0.06); }
@@ -110,7 +110,7 @@ html, body { height: 100%; background: var(--cream); color: var(--ink); font-fam
 .list-logo { width: 52px; height: 52px; border-radius: 10px; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
 .list-logo img { max-width: 36px; max-height: 36px; object-fit: contain; }
 .list-info { flex: 1; min-width: 0; }
-.list-name { font-family: 'Josefin Sans', sans-serif; font-size: 15px; color: var(--ink); }
+.list-name { font-family: 'Anton',  sans-serif; font-size: 15px; color: var(--ink); }
 .list-desc { font-size: 12.5px; color: var(--muted); margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .list-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
 .list-cat-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--maroon); background: rgba(107,30,46,0.08); border-radius: 4px; padding: 2px 7px; }
@@ -130,12 +130,12 @@ html, body { height: 100%; background: var(--cream); color: var(--ink); font-fam
 .modal-header { background: var(--cream); padding: 32px; display: flex; align-items: center; gap: 20px; border-bottom: 1px solid var(--border); }
 .modal-logo { width: 72px; height: 72px; border-radius: 14px; background: var(--white); display: flex; align-items: center; justify-content: center; font-size: 36px; flex-shrink: 0; border: 1px solid var(--border); }
 .modal-logo img { max-width: 52px; max-height: 52px; object-fit: contain; }
-.modal-title { font-family: 'Josefin Sans', sans-serif; font-size: 22px; color: var(--ink); }
+.modal-title { font-family: 'Anton',  sans-serif; font-size: 22px; color: var(--ink); }
 .modal-tag { display: inline-block; margin-top: 5px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--maroon); background: rgba(107,30,46,0.08); border-radius: 4px; padding: 2px 8px; }
 .modal-body { padding: 24px 32px 28px; }
 .modal-desc { font-size: 14.5px; line-height: 1.65; color: var(--muted); }
 .modal-actions { display: flex; gap: 10px; margin-top: 22px; }
-.modal-btn { flex: 1; padding: 11px; border-radius: 10px; font-family: 'Josefin Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s; }
+.modal-btn { flex: 1; padding: 11px; border-radius: 10px; font-family: 'Anton',  sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; border: none; transition: all 0.15s; }
 .modal-btn.primary { background: var(--maroon); color: white; }
 .modal-btn.primary:hover { background: var(--maroon-light); }
 .modal-btn.secondary { background: var(--cream); color: var(--ink); border: 1px solid var(--border); }

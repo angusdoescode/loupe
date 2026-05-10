@@ -18,7 +18,7 @@ html, body {
   height: 100%;
   background: var(--cream);
   color: var(--ink);
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Anton',  sans-serif;
   font-size: 15px;
   overflow: hidden;
 }
@@ -189,7 +189,7 @@ html, body {
 }
 
 .topbar-title {
-  font-family: 'Helvetica Neue', serif;
+  font-family: 'Anton',  serif;
   font-size: 67px;
   color: var(--ink);
   letter-spacing: -0.3px;
